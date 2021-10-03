@@ -1,0 +1,27 @@
+GET http://localhost:3001/data?admin=true 
+
+###
+
+POST http://localhost:3001/post 
+Content-Type: application/json
+
+{
+    "name" : "james johnson",
+    "email": "james007@email.com",
+    "password": "123456",
+    "amount": 4500
+}
+
+###
+GET http://localhost:3001/james007@email.com
+
+###
+
+PUT http://localhost:3001/updateAmount 
+content-type: application/json
+
+{
+    "email": "james007@email.com",
+    "_id": "6156906c8e5615a12cb24125",
+    "amount": 5500
+}

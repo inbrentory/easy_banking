@@ -1,0 +1,30 @@
+{
+  "name": "easy_banking",
+  "version": "1.0.0",
+  "description": "License: MIT",
+  "main": "index.js",
+  "proxy": "http://localhost:3001",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inbrentory/easy_banking.git"
+  },
+  "author": "Brent",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inbrentory/easy_banking/issues"
+  },
+  "homepage": "https://github.com/inbrentory/easy_banking#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.8"
+  }
+}
