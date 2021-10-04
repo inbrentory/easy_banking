@@ -2,12 +2,13 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../UserContext'
+import { useHistory } from 'react-router-dom'
 
 
 export default function FormAlldata() {
 
     const [dataCollector, setDataCollector] = useState([])
-
+    const history                = useHistory()
     const password = "admin"; 
     
     useEffect(() => {
