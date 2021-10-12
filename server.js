@@ -9,7 +9,10 @@ const app = express();
 app.use(express.json()); // enable to use JSON type from API
 app.use(cors());         // enable cross origin to cooperate 
 
-mongoose.connect('mongodb+srv://brent:brentPW12@cluster-starter.g5eso.mongodb.net/mern?retryWrites=true&w=majority',{
+
+ATLAS_URI = 'mongodb+srv://brent:brentPW12@cluster-starter.g5eso.mongodb.net/mern?retryWrites=true&w=majority'
+
+mongoose.connect(ATLAS_URI,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -76,16 +79,16 @@ if (process.env.NODE_ENV === "production") {
     // Serve any static files
     app.use(express.static(path.join(__dirname, "client/build")));
     // Handle React routing, return all requests to React app
-    app.get("*", function(req, res) {
-       res.sendFile(path.join(__dirname, "client/build", "index.html"));
+    app.get("*", function (req, res) {
+      res.sendFile(path.join(__dirname, "client/build", "index.html"));
     });
- }
+  }
 
-app.use((req, res, next) => {
+  app.use((req, res, next) => {
     const error = new Error("Not found");
     error.status = 404;
     next(error);
-});
+  });
 
 const PORT = process.env.PORT || 3001
 
